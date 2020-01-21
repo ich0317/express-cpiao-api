@@ -1,0 +1,13 @@
+.DS_Store
+node_modules/
+db/
+uploads/film_photos/
+uploads/news_photos/
+env.js
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
