@@ -32,6 +32,7 @@ app.use(
  * 后台登录拦截
  */
 // app.use('/', async (req,res,next)=>{
+
 //   if(req.headers['x-token']){
 //     jwt.verify(req.headers['x-token'], 'a1b2c3d4', (err, decoded) => {
 //       if(decoded){

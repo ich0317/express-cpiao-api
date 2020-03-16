@@ -144,7 +144,8 @@ exports.createOrder = async (req, res, next) => {
                     session_id,
                     cinema_name:cinemaRes.cinema_name,
                     film_name:findSession.film_name,
-                    start_datetime:findSession.start_datetime
+                    start_datetime:findSession.start_datetime,
+                    end_datetime:findSession.end_datetime
                 })
              
                 res.send({
@@ -218,7 +219,7 @@ exports.list = async (req, res, next) => {
                 let { uid } = decoded.data;
                 const listRes = await ordersTable.find({user_id: uid, order_status:{
                     $in:[ORDER_STATUS.Unpaid, ORDER_STATUS.Paid, ORDER_STATUS.Refunded, ORDER_STATUS.Refunding, ORDER_STATUS.RefundFailed]
-                }}, 'seat_count order_status cinema_name total_price film_name start_datetime').sort({order_datetime:-1})
+                }}, 'seat_count order_status cinema_name total_price film_name start_datetime end_datetime').sort({order_datetime:-1})
 
                 res.send({
                     code: 0,
@@ -227,6 +228,12 @@ exports.list = async (req, res, next) => {
                         list:listRes,
                         total:listRes.length
                     }
+                });
+            }else{
+                res.send({
+                    code: 1,
+                    msg: "请登录",
+                    data: []
                 });
             }
     })

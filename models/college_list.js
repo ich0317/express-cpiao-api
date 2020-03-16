@@ -6,5 +6,5 @@ const collegeList = new mongoose.Schema({
     address:String,
     longitude:String,   //经度
     latitude:String //维度,
-});
+}, {versionKey: false});
 module.exports = mongoose.model('collegeList', collegeList);

@@ -12,5 +12,5 @@ module.exports = {
     },
     SEAT_STATUS:[0, 1, 2, 3, 4], //0可用,1已售,2锁定,3不可售,4已选
     PIAO_LOGIN_TOKEN_SALT:"a4b3c2d1",   //前台用户撒盐
-    PIAO_LOGIN_TOKEN_EXPIRES: 60 * 120,  //前台用户过期时间 秒
+    PIAO_LOGIN_TOKEN_EXPIRES: 30 * 2 * 60,  //前台用户过期时间 秒
 }

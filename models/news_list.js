@@ -15,5 +15,5 @@ const newsList = new mongoose.Schema({
     },
     editor:String,
     status:Boolean
-});
+}, {versionKey: false});
 module.exports = mongoose.model('newsList', newsList);

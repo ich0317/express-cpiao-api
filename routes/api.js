@@ -24,14 +24,11 @@ const oMember = require('../controllers/frontend/member');
 //router.get('/getPiaoVerifiCode', oMember.getVerificationCode)
 //登录
 router.post('/piaoLogin', oMember.login)
-//获取当前城市排期
-router.get('/getPiaoFilm', oFilm.getPiaoFilm)
-//获取当前城市影院
-router.get('/getPiaoCinemas', oFilm.getPiaoCinemas)
+//获取当前影院信息
+router.get('/getPiaoCinemas', oCinema.getPiaoCinemas)
 //获取当前影院排期
 router.get('/getPiaoCinemaSessions', oFilm.getCinemaSessions)
-//城市列表
-router.get('/getPiaoCitys', oCinema.getPiaoCitys)
+
 //获取影院座位图
 router.post('/getPiaoSeatMap', oSeat.getSeatMap)
 //创建订单

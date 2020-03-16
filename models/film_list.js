@@ -12,5 +12,5 @@ const filmList = new mongoose.Schema({
     language:String,    //语言
     release_date:Date, //上映日期
     film_version:String //影片版本
-});
+}, {versionKey: false});
 module.exports = mongoose.model('filmList', filmList);

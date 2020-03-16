@@ -62,7 +62,7 @@ exports.login = async (req, res, next) => {
 //获取登录信息
 exports.getLoginInfo = async (req, res, next) => {
     jwt.verify(
-        req.headers["_piao-token"],
+        req.cookies._piao_token,
         PIAO_LOGIN_TOKEN_SALT,
         async (err, decoded) => {
             if (decoded) {
@@ -72,6 +72,12 @@ exports.getLoginInfo = async (req, res, next) => {
                     code: 0,
                     msg: "成功",
                     data: userRes
+                });
+            }else{
+                res.send({
+                    code: -1,
+                    msg: "未登录",
+                    data: []
                 });
             }
     })

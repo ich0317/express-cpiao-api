@@ -32,7 +32,8 @@ const orderList = new mongoose.Schema(
         session_id: String, //场次id
         cinema_name: String, //影院名称
         film_name:String,
-        start_datetime:String
+        start_datetime:String,
+        end_datetime:String
     },
     { versionKey: false }
 );
