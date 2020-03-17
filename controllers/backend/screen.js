@@ -4,25 +4,18 @@ const screenListTable = require("../../models/screen_list");
 const seatListTable = require("../../models/seat_list");
 
 //添加影厅
-exports.addScreen = (req, res, next) => {
+exports.addScreen = async (req, res, next) => {
   let { _id } = req.body;
   if(_id){
     //修改
-    filmListTable.find({film_name:{$regex:film_name}},(err,data)=>{
-      if (err) return console.log(err);
-      if(data.length == 0){
-        res.json({
-          code:1,
-          msg:'暂无影片',
-          data
-        });
-      }else{
-        res.json({
-          code:0,
-          msg:'获取成功',
-          data
-        });
-      }
+    const updateRes = await screenListTable.updateOne({
+      _id
+    }, req.body);
+    console.log(updateRes);
+    res.json({
+      code:0,
+      msg:'修改成功',
+      data:updateRes
     });
   }else{
     //新增

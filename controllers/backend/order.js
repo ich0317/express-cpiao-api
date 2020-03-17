@@ -1,7 +1,7 @@
 const orderListTable = require("../../models/order_list");
 let { parseToken } = require("../../utils/token");
 
-//获取新闻列表
+//获取订单列表
 exports.getOrder = async (req, res, next) => {
   let {
     film_name,
@@ -61,7 +61,7 @@ exports.getOrder = async (req, res, next) => {
   orderListTable
     .find(
       searchCond,
-      "order_num film_name cinema_name total_price serve_price order_datetime status pay_price username seat"
+      "order_num film_name cinema_name total_price total_serveprice order_datetime order_status total_price user_id seat"
     )
     .skip(n)
     .limit(Number(page_size))
@@ -78,26 +78,11 @@ exports.getOrder = async (req, res, next) => {
           }
         });
       } else {
-        let newData = data.map(v=>{
-          return {
-            order_num:v.order_num,
-            film_name:v.film_name,
-            cinema_name:v.cinema_name,
-            total_price:v.total_price,
-            serve_price:v.serve_price,
-            order_datetime:v.order_datetime,
-            status:v.status,
-            pay_price:v.pay_price,
-            username:v.username,
-            seat:v.seat,
-            _id:v._id
-          }
-        })
         res.json({
           code: 0,
           msg: "获取成功",
           data: {
-            list: newData,
+            list: data,
             total: numAdventures
           }
         });
