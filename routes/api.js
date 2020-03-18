@@ -68,6 +68,8 @@ router.post("/delCinema", cinemaManage.delCinema);
 router.post("/searchFilm", planManage.searchFilm);
 //添加影厅
 router.post("/addScreen", screenManage.addScreen);
+//删除影厅
+router.post("/delScreen", screenManage.delScreen);
 //获取影厅
 router.get("/getScreen", screenManage.getScreen);
 //添加座位
